@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -261,7 +261,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T12:09:23+08:00">
                 2018-01-27
@@ -327,7 +327,7 @@
 <li><p>js代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">data</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">let</span> oUl = <span class="built_in">document</span>.getElementById(<span class="string">'option'</span>);</span><br><span class="line"></span><br><span class="line">  oUl.innerHTML = <span class="string">''</span>;</span><br><span class="line">  data.s.forEach(<span class="function"><span class="params">str</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">    oLi.innerHTML=str;</span><br><span class="line">    oUl.appendChild(oLi);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> inp = <span class="built_in">document</span>.getElementById(<span class="string">'search'</span>);</span><br><span class="line"></span><br><span class="line">  inp.oninput = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> oScript = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    oScript.src = <span class="string">`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(inp.value)&#125;</span>&amp;cb=show`</span>;</span><br><span class="line">    <span class="built_in">document</span>.head.appendChild(oScript);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在搜索框输入内容可以看到如下效果：<br><br><img src="/2018/01/27/jsonp-introduction/images/jsonp.png" alt="alt jsonp" title="jsonp"></p>
+<li><p>在搜索框输入内容可以看到如下效果：<br><br><img src="/2018/01/27/jsonp-introduction/jsonp.png" alt="alt jsonp"></p>
 </li>
 </ol>
 <p><strong>这里需要注意的就是，在插入<code>&lt;script&gt;</code>的时候，每次都要创建一个新的<code>&lt;script&gt;</code>重新插入</strong></p>
@@ -411,7 +411,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T21:22:30+08:00">
                 2018-01-26
@@ -533,7 +533,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T20:49:22+08:00">
                 2018-01-26
@@ -666,7 +666,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -679,7 +679,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -725,7 +725,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
