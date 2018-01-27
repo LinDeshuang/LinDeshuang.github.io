@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>LinDs</title>
+  
+  <subtitle>技术创造生活，技术也来源于生活</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-01-27T05:03:23.153Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Dayson</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jsonp-introduction</title>
+    <link href="http://yoursite.com/2018/01/27/jsonp-introduction/"/>
+    <id>http://yoursite.com/2018/01/27/jsonp-introduction/</id>
+    <published>2018-01-27T04:09:23.000Z</published>
+    <updated>2018-01-27T05:03:23.153Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JSONP简介"><a href="#JSONP简介" class="headerlink" title="JSONP简介"></a>JSONP简介</h1><blockquote><p>JSONP是JSON with padding(填充式JSON或参数式JSON)的简写。<br>我们都知道Netscape著名的安全策略——同源策略，该策略是不允许进行跨域请求的，而jsonp 就是解决跨域请求的方式之一，不过目前的趋势可能会越用越少，因为已经有新的更好的跨域请求方式，比如：ajax跨域——CORS跨域。<br>由于<code>&lt;script&gt;</code>标签加载的数据是不受同源策略，jsonp正是利用这一点，在网页里面添加一个<code>&lt;script&gt;</code>元素，向服务器请求json数据，服务器返回的json数据会放在指定的回调函数里传回来，而客户端只需要实现这个回调函数做什么就可以了。</p></blockquote><p> 当通过<code>&lt;script&gt;</code>元素调用数据时，响应内容必须用javascript函数名和圆括号包裹起来。而不是发送这样一段JSON数据，这就是JSONP中P的意义所在:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">callback(json_data);</span><br></pre></td></tr></table></figure></p><h3 id="百度的jsonp"><a href="#百度的jsonp" class="headerlink" title="百度的jsonp"></a>百度的jsonp</h3><p>我们经常用的百度搜索就使用了jsonp技术，当我们在搜索框输入内容的时候，f12打开控制台的network可以看到网页加载了一个<code>&lt;script&gt;</code>，请求的链接如下：</p><blockquote><p><a href="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=j&amp;json=1&amp;p=3&amp;sid=1432_21093&amp;req=2&amp;bs=jsonp&amp;csor=1&amp;cb=jQuery110206596423797291286_1517021405329&amp;_=1517021405334" target="_blank" rel="noopener">https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=j&amp;json=1&amp;p=3&amp;sid=1432_21093&amp;req=2&amp;bs=jsonp&amp;csor=1&amp;cb=jQuery110206596423797291286_1517021405329&amp;_=1517021405334</a></p></blockquote><p>链接里主要用来实现jsonp的参数就是wd和cb，wd是你输入的内容，而cb是回调函数的名称。<br>我们可以试一下在浏览器中输入这段地址请求：</p><blockquote><p><a href="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=js&amp;cb=show" target="_blank" rel="noopener">https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=js&amp;cb=show</a></p></blockquote><p>你会得到这样的响应结果：</p><blockquote><p>show({q:”js”,p:false,s:[“json在线解析”,”json”,”建设银行”,”计算器”,”js保留两位小数”,”json.stringify()”,”json格式化”,”jsp”,”js 数组”,”js刷新当前页面”]});</p></blockquote><p>把这段响应结果放进<code>&lt;script&gt;</code>标签加载进来会怎样呢？不就是相当于调用show方法吗，而且传入了一个json数据。<br>其实这就是jsonp的实现过程，需要后端的配合实现，即后端帮你拿数据，然后利用<code>&lt;script&gt;</code>标签把数据加载进页面。</p><h3 id="我们来试一下用百度的jsonp为我们搜索数据"><a href="#我们来试一下用百度的jsonp为我们搜索数据" class="headerlink" title="我们来试一下用百度的jsonp为我们搜索数据"></a>我们来试一下用百度的jsonp为我们搜索数据</h3><ol><li><p>html代码如下：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>jsonp<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"search"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"option"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>js代码如下：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">data</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">let</span> oUl = <span class="built_in">document</span>.getElementById(<span class="string">'option'</span>);</span><br><span class="line"></span><br><span class="line">  oUl.innerHTML = <span class="string">''</span>;</span><br><span class="line">  data.s.forEach(<span class="function"><span class="params">str</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">    oLi.innerHTML=str;</span><br><span class="line">    oUl.appendChild(oLi);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> inp = <span class="built_in">document</span>.getElementById(<span class="string">'search'</span>);</span><br><span class="line"></span><br><span class="line">  inp.oninput = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> oScript = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    oScript.src = <span class="string">`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(inp.value)&#125;</span>&amp;cb=show`</span>;</span><br><span class="line">    <span class="built_in">document</span>.head.appendChild(oScript);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>在搜索框输入内容可以看到如下效果：<br><br><img src="/2018/01/27/jsonp-introduction/jsonp.PNG" alt="alt jsonp"></p></li></ol><p><strong>这里需要注意的就是，在插入<code>&lt;script&gt;</code>的时候，每次都要创建一个新的<code>&lt;script&gt;</code>重新插入</strong></p><blockquote><p>以上就是我对jsonp的粗略见解，虽说jsonp以后可能会被新的技术取代，不过多了解一些解决方法，还是有利于知识面的扩展的，正所谓技多不压身。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;JSONP简介&quot;&gt;&lt;a href=&quot;#JSONP简介&quot; class=&quot;headerlink&quot; title=&quot;JSONP简介&quot;&gt;&lt;/a&gt;JSONP简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;JSONP是JSON with padding(填充式JSON或参数式JS
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇hexo</title>
+    <link href="http://yoursite.com/2018/01/26/%E7%AC%AC%E4%B8%80%E7%AF%87hexo/"/>
+    <id>http://yoursite.com/2018/01/26/第一篇hexo/</id>
+    <published>2018-01-26T13:22:30.569Z</published>
+    <updated>2018-01-26T13:25:25.338Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一次使用hexo搭建博客"><a href="#第一次使用hexo搭建博客" class="headerlink" title="第一次使用hexo搭建博客"></a>第一次使用hexo搭建博客</h1><blockquote><p>我还是先学学markdown语法吧。。。。。。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;第一次使用hexo搭建博客&quot;&gt;&lt;a href=&quot;#第一次使用hexo搭建博客&quot; class=&quot;headerlink&quot; title=&quot;第一次使用hexo搭建博客&quot;&gt;&lt;/a&gt;第一次使用hexo搭建博客&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;我还是先学学markdow
+      
+    
+    </summary>
+    
+    
+      <category term="diary" scheme="http://yoursite.com/tags/diary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/01/26/hello-world/"/>
+    <id>http://yoursite.com/2018/01/26/hello-world/</id>
+    <published>2018-01-26T12:49:22.043Z</published>
+    <updated>2018-01-26T12:49:22.043Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
