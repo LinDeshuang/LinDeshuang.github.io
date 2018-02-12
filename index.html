@@ -255,7 +255,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/12/php-knowledge-1/" itemprop="url">PHP知识点序列1</a></h1>
+                <a class="post-title-link" href="/2018/02/12/php-knowledge-1/" itemprop="url">PHP小知识点-序列1</a></h1>
         
 
         <div class="post-meta">
@@ -307,14 +307,14 @@
       
         
           
-            <h1 id="PHP知识点-序列1"><a href="#PHP知识点-序列1" class="headerlink" title="PHP知识点-序列1"></a>PHP知识点-序列1</h1><h2 id="双引号和单引号的区别"><a href="#双引号和单引号的区别" class="headerlink" title="双引号和单引号的区别"></a>双引号和单引号的区别</h2><ol>
+            <h1 id="PHP小知识点-序列1"><a href="#PHP小知识点-序列1" class="headerlink" title="PHP小知识点-序列1"></a>PHP小知识点-序列1</h1><h3 id="双引号和单引号的区别"><a href="#双引号和单引号的区别" class="headerlink" title="双引号和单引号的区别"></a>双引号和单引号的区别</h3><ol>
 <li>双引号解释变量，单引号不解释变量</li>
 <li>双引号里插入单引号，其中单引号里如果有变量的话，变量解释</li>
 <li>双引号的变量名后面必须要有一个非数字、字母、下划线的特殊字符，或者用花括号将变量括起来，否则会将变量名后面的部分当做一个整体，引起语法错误</li>
 <li>双引号解释转义字符，单引号不解释转义字符，但是解释\和\\</li>
 <li>能使单引号字符尽量使用单引号，单引号的效率比双引号要高（因为双引号要先遍历一遍，判断里面有没有变量，然后再进行操作，而单引号则不需要判断）</li>
 </ol>
-<h2 id="常用的超全局变量-8个"><a href="#常用的超全局变量-8个" class="headerlink" title="常用的超全局变量-8个"></a>常用的超全局变量-8个</h2><ol>
+<h3 id="常用的超全局变量-8个"><a href="#常用的超全局变量-8个" class="headerlink" title="常用的超全局变量-8个"></a>常用的超全局变量-8个</h3><ol>
 <li>$_GET<blockquote>
 <p>获取get方式的值</p>
 </blockquote>
@@ -347,6 +347,11 @@
 <p>获取对应cookie信息</p>
 </blockquote>
 </li>
+</ol>
+<h3 id="语句include和require的区别"><a href="#语句include和require的区别" class="headerlink" title="语句include和require的区别"></a>语句include和require的区别</h3><ol>
+<li>require是无条件包含，也就是如果一个流程里加入require，无论条件成立与否都会先执行require，当文件不存在或者无法打开的时候，会提示错误，并且会终止程序执行（即包含文件不存在或者语法错误的时候require是致命的，而include不是）</li>
+<li>include有返回值，而require没有(可能因为如此require的速度比include快)，如果被包含的文件不存在，那么会提示一个错误，但是程序会继续执行下去</li>
+<li>require_once和include_once都表示表示包含一次，避免了重复包含</li>
 </ol>
 
           
