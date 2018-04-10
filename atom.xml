@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-28T11:30:07.300Z</updated>
+  <updated>2018-04-10T11:43:29.969Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>冒泡排序算法</title>
+    <link href="http://yoursite.com/2018/04/10/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/04/10/冒泡排序算法/</id>
+    <published>2018-04-10T11:43:29.585Z</published>
+    <updated>2018-04-10T11:43:29.969Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>排序算法有很多种，比如快速排序、选择排序、冒泡排序等等，这里用python实现了一个简单的冒泡排序，参数是一个无序的列表，返回值是经过排序后的列表。</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用python实现冒泡排序</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubbleSort</span><span class="params">(li)</span>:</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(li)<span class="number">-1</span>):</span><br><span class="line">flag = <span class="keyword">True</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(len(li)-i<span class="number">-1</span>):</span><br><span class="line"><span class="keyword">if</span> li[j] &lt; li[j+<span class="number">1</span>]:</span><br><span class="line">li[j],li[j+<span class="number">1</span>] = li[j+<span class="number">1</span>],li[j]</span><br><span class="line">flag = <span class="keyword">False</span></span><br><span class="line"><span class="keyword">if</span> flag:</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line"><span class="keyword">return</span> li</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;排序算法有很多种，比如快速排序、选择排序、冒泡排序等等，这里用python实现了一个简单的冒泡排序，参数是一个无序的列表，返回值是经过排序后的列表。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight python
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>水仙花数</title>
