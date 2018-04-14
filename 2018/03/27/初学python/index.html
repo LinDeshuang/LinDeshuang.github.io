@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="LinDs">
 <meta property="og:description" content="初学python 面向对象、解释型、动态数据类型的高级程序设计语言 作者：荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年，遵循GPL协议  优点 简单易学 免费开源 已于维护 代码易读性高，编程方式较为优雅   可移植性强 面向对象 可嵌入 一个标准的 支持GUI编程  缺点 运行速度慢（与C语言相比，比起JAVA性能也较差） 代码不可加密  python">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-10T12:11:30.465Z">
+<meta property="og:updated_time" content="2018-04-14T08:27:04.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学python">
 <meta name="twitter:description" content="初学python 面向对象、解释型、动态数据类型的高级程序设计语言 作者：荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年，遵循GPL协议  优点 简单易学 免费开源 已于维护 代码易读性高，编程方式较为优雅   可移植性强 面向对象 可嵌入 一个标准的 支持GUI编程  缺点 运行速度慢（与C语言相比，比起JAVA性能也较差） 代码不可加密  python">
@@ -375,6 +375,39 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 <li>区分大小写</li>
 <li>取名字要做到见名知义</li>
 </ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ol>
+<li><p>Number(数字)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">整数</span><br><span class="line">浮点数</span><br><span class="line">复数：（a+bj）或者complex(a,b)表示，实部a和虚部b都是浮点型</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>String(字符串)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"hello world"</span></span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line"><span class="string">'hello world\n'</span> <span class="comment">#斜杠表示转译</span></span><br><span class="line"><span class="string">r'hello world\n'</span> <span class="comment">#r表示忽略转译</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>Boolean(布尔值)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">True</span>(<span class="number">1</span>)/<span class="keyword">False</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>None(空值)</p>
+</li>
+<li><p>list(列表)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 有序的集合</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>]</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>tuple(元组)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与list类似，但初始化后就不能再改变</span></span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">（<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>）</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>dict(字典)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用键-值（key-value）存储，key是唯一的，dict是无序的</span></span><br><span class="line">&#123;<span class="string">"a"</span>:<span class="number">1</span>,<span class="string">"b"</span>:<span class="number">2</span>,<span class="string">"c"</span>:<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>set(集合)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以看做只存储key的dict,因此每个元素都是唯一的</span></span><br><span class="line">&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="变量和常量"><a href="#变量和常量" class="headerlink" title="变量和常量"></a>变量和常量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义：变量名=变量值，一个变量也可以反复赋值，而且可以是不同类型的变量</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="string">"hello world"</span></span><br><span class="line"><span class="comment"># 常量：程序运行期间不能改变的数据</span></span><br><span class="line"><span class="comment">#如：数字和字符、字符串</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="string">'a'</span></span><br></pre></td></tr></table></figure>
+<p><strong>在python里，不管是什么类型的变量，都可以直接输出！</strong></p>
 
       
     </div>
@@ -501,7 +534,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -554,7 +587,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初学python"><span class="nav-number">1.</span> <span class="nav-text">初学python</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.0.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.0.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python能做什么"><span class="nav-number">1.0.3.</span> <span class="nav-text">python能做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python的三种运行方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">python的三种运行方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python的编码规范"><span class="nav-number">1.0.5.</span> <span class="nav-text">python的编码规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识符规则"><span class="nav-number">1.0.6.</span> <span class="nav-text">标识符规则</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初学python"><span class="nav-number">1.</span> <span class="nav-text">初学python</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.0.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.0.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python能做什么"><span class="nav-number">1.0.3.</span> <span class="nav-text">python能做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python的三种运行方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">python的三种运行方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python的编码规范"><span class="nav-number">1.0.5.</span> <span class="nav-text">python的编码规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识符规则"><span class="nav-number">1.0.6.</span> <span class="nav-text">标识符规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.0.7.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量和常量"><span class="nav-number">1.0.8.</span> <span class="nav-text">变量和常量</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
