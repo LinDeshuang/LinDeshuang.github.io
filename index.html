@@ -190,7 +190,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            ホーム
+            Startseite
           </a>
         </li>
       
@@ -200,7 +200,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            タグ
+            Tags
           </a>
         </li>
       
@@ -210,7 +210,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            アーカイブ
+            Archiv
           </a>
         </li>
       
@@ -233,6 +233,269 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/Python的字符串相关方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayson">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinDs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/18/Python的字符串相关方法/" itemprop="url">Python的字符串相关方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-18T20:41:54+08:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="分割和合并"><a href="#分割和合并" class="headerlink" title="分割和合并"></a>分割和合并</h3><ol>
+<li><p>string.split(sp, num)</p>
+<blockquote>
+<p>以 sp 分割字符串string，num是分割的次数，默认进行全分割，即num的默认值为string.count(sp)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"It's a good day!"</span></span><br><span class="line"><span class="comment"># 使用空格进行分割</span></span><br><span class="line">list1 = str1.split(<span class="string">" "</span>)</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="string">"It's"</span>, <span class="string">"a"</span>, <span class="string">"good"</span>, <span class="string">"day!"</span>]</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.splitlines( [ keepends ] )</p>
+<blockquote>
+<p>字符串string按照行（’\r’, ‘\r\n’, ‘\n’）进行分割，返回字符串各行作为元素的列表，若keepend的值为True，各元素保留换行符，默认为False，即不保留。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">'''how are</span></span><br><span class="line"><span class="string">you ?</span></span><br><span class="line"><span class="string">i am</span></span><br><span class="line"><span class="string">fine</span></span><br><span class="line"><span class="string">!</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 不保留换行符</span></span><br><span class="line">list2 = str1.splitlines()</span><br><span class="line">print(list2)</span><br><span class="line">[<span class="string">'how are'</span>, <span class="string">'you ?'</span>, <span class="string">'i am'</span>, <span class="string">'fine'</span>, <span class="string">'!'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保留换行符</span></span><br><span class="line">list3 = str1.splitlines(keepends=<span class="keyword">True</span>)</span><br><span class="line">print(list3)</span><br><span class="line">[<span class="string">'how are\n'</span>, <span class="string">'you ?\n'</span>, <span class="string">'i am\n'</span>, <span class="string">'fine\n'</span>, <span class="string">'!\n'</span>]</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.join( seq )</p>
+<blockquote>
+<p>以指定的字符串string作为连接符，将seq中的所有元素（必须为字符或字符串）连接起来形成一个新的字符串</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'4'</span>]</span><br><span class="line">str1 = <span class="string">"*"</span>join(list2)</span><br><span class="line">print(str1)</span><br><span class="line"><span class="string">'1*2*3*4'</span></span><br><span class="line"></span><br><span class="line">str2 = <span class="string">"abcd"</span></span><br><span class="line">str3 = <span class="string">"*"</span>.join(str2)</span><br><span class="line">print(str3)</span><br><span class="line"><span class="string">'a*b*c*d'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h3><ol>
+<li><p>string.replace(old, new [,count] )</p>
+<blockquote>
+<p>将字符串中的old替换成new，若不指定count，则默认全部替换，若指定count，则替换前count个</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"how are you , i am fine thank you"</span></span><br><span class="line">str2 = str1.replace(<span class="string">"you"</span>, <span class="string">"me"</span>)</span><br><span class="line">print(str2)</span><br><span class="line"><span class="string">"how are me , i am fine thank me"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="判断字符串的开头结尾"><a href="#判断字符串的开头结尾" class="headerlink" title="判断字符串的开头结尾"></a>判断字符串的开头结尾</h3><ol>
+<li><p>string.startswith( str1 , start = 0, end = len(str) )</p>
+<blockquote>
+<p>在给定的范围内判断字符串是否以给定的字符串开头，如果没有指定范围，默认整个字符串</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"aaa bbb  ccc  deee"</span></span><br><span class="line">print(str1.startswith(<span class="string">"aa"</span>))</span><br><span class="line"><span class="comment">#结果</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">str1 = <span class="string">"aaa bbb  ccc  deee"</span></span><br><span class="line">print(str1.startswith(<span class="string">"aa"</span>, <span class="number">3</span>, <span class="number">9</span>))</span><br><span class="line"><span class="comment">#结果</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.endswith( str1 , start = 0, end = len(str) )</p>
+<blockquote>
+<p>在给定的范围内判断字符串是否以指定的字符串结尾，若没有指定范围，默认为整个字符串</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"aaa bbb  ccc  deee"</span></span><br><span class="line">print(str1.endswith(<span class="string">"e"</span>))</span><br><span class="line"><span class="comment">#结果</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">str1 = <span class="string">"aaa bbb  ccc  deee"</span></span><br><span class="line">print(str1.endswith(<span class="string">"e"</span>, <span class="number">3</span> ,<span class="number">9</span>))</span><br><span class="line"><span class="comment">#结果</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="编码与解码"><a href="#编码与解码" class="headerlink" title="编码与解码"></a>编码与解码</h3><ol>
+<li><p>string.encode(encoding = “utf-8”, errors = “strict”)</p>
+<blockquote>
+<p>字符串的编码，若不指定encoding则默认选择utf-8</p>
+<p>errors = ignore 的时候，忽略错误</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"你好吗？"</span></span><br><span class="line">data = str1.encode()</span><br><span class="line">print(data)</span><br><span class="line">print(type(data))</span><br><span class="line"><span class="comment">#结果</span></span><br><span class="line"><span class="string">b'\xe4\xbd\xa0\xe5\xa5\xbd\xe5\x90\x97\xef\xbc\x9f'</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bytes</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.encode(encoding = “utf-8”, errors = “strict”)</p>
+<blockquote>
+<p>对字符进行解码，若不指定编码格式，则默认选择utf-8</p>
+<p>errors = ignore 的时候，忽略错误</p>
+<p>解码时的编码格式要与编码时的保持一致</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"你好吗？"</span></span><br><span class="line">data = str1.encode()</span><br><span class="line">print(data)</span><br><span class="line">print(type(data))</span><br><span class="line"><span class="string">b'\xe4\xbd\xa0\xe5\xa5\xbd\xe5\x90\x97\xef\xbc\x9f'</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bytes</span>'&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"></span></span><br><span class="line">data2 = data.decode()</span><br><span class="line">print(data2)</span><br><span class="line">print(type(data2))</span><br><span class="line">你好吗？</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">str</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串内容判断"><a href="#字符串内容判断" class="headerlink" title="字符串内容判断"></a>字符串内容判断</h3><ol>
+<li><p>string.isalpha()</p>
+<blockquote>
+<p>字符串不为空，且字符串只包含字母时，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"hello ni hao "</span></span><br><span class="line">print(str1.isalpha())</span><br><span class="line"><span class="keyword">False</span></span><br><span class="line">str2 = <span class="string">"hellonahao"</span></span><br><span class="line">print(str2.isalpha())</span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.isalnum()</p>
+<blockquote>
+<p>字符串不为空，且字符串只包含字母或数字是返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">"sc22xdcd"</span></span><br><span class="line">str2 = <span class="string">"xdcd"</span></span><br><span class="line">str3 = <span class="string">"64646"</span></span><br><span class="line">print(str1.isalnum())</span><br><span class="line">print(str2.isalnum())</span><br><span class="line">print(str3.isalnum())</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.isupper()</p>
+<blockquote>
+<p>字符串至少包含一个字母，且字符串里面的字母都是大写时，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"123141"</span>.isupper())</span><br><span class="line">print(<span class="string">"acV141"</span>.isupper())</span><br><span class="line">print(<span class="string">"1AAA1"</span>.isupper())</span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.islower()</p>
+<blockquote>
+<p>字符串至少包含一个字母，且字符串里面的字母都是小写时，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"123141"</span>.isupper())</span><br><span class="line">print(<span class="string">"acV141"</span>.isupper())</span><br><span class="line">print(<span class="string">"1aaa1"</span>.isupper())</span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.istitle()</p>
+<blockquote>
+<p>若字符串是标题化（每个单词的首字母大写）的字符串，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello 123"</span>.istitle())</span><br><span class="line">print(<span class="string">"Hello World"</span>.istitle())</span><br><span class="line">print(<span class="string">"hello world"</span>.istitle())</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.isdigit()</p>
+<blockquote>
+<p>若字符串不为空，且字符串只包含Unicode数字、byte数字（单字节）、全角数字（双字节）时，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">isdigit()</span><br><span class="line"><span class="keyword">True</span>: Unicode数字，byte数字（单字节），全角数字（双字节）</span><br><span class="line"><span class="keyword">False</span>: 汉字数字， ，罗马数字</span><br><span class="line">Error: 无</span><br><span class="line">    </span><br><span class="line">print(<span class="string">b"111"</span>.isdigit())</span><br><span class="line">print(<span class="string">"111"</span>.isdigit())</span><br><span class="line">print(<span class="string">"a11"</span>.isdigit())</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.isnumeric()</p>
+<blockquote>
+<p>若字符串不为空，且字符串只包含Unicode数字、<strong>汉字数字</strong>、全角数字（双字节）时，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">isnumeric()</span><br><span class="line"><span class="keyword">True</span>: Unicode数字，全角数字（双字节），汉字数字</span><br><span class="line"><span class="keyword">False</span>: 罗马数字，</span><br><span class="line">Error: byte数字（单字节）</span><br><span class="line">    </span><br><span class="line">print(<span class="string">"111"</span>.isnumeric())</span><br><span class="line">print(<span class="string">"一二三四"</span>.isnumeric())</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line">print(<span class="string">b"111"</span>.isnumeric())</span><br><span class="line">AttributeError: <span class="string">'bytes'</span> object has no attribute <span class="string">'isnumeric'</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.isdecimal()</p>
+<blockquote>
+<p>若字符串不为空，且字符串只包含Unicode数字、全角数字（双字节）时，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">isdecimal()</span><br><span class="line"><span class="keyword">True</span>: Unicode数字，，全角数字（双字节），</span><br><span class="line"><span class="keyword">False</span>: 罗马数字，汉字数字</span><br><span class="line">Error: byte数字（单字节）</span><br><span class="line">   </span><br><span class="line">print(<span class="string">"123"</span>.isdecimal())</span><br><span class="line">print(<span class="string">"123z"</span>.isdecimal())</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>string.isspace()</p>
+<blockquote>
+<p>若字符串不为空，且字符串只包含空格时，返回True，否则返回False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">" "</span>.isspace())</span><br><span class="line">print(<span class="string">"\t"</span>.isspace())</span><br><span class="line">print(<span class="string">"\n"</span>.isspace())</span><br><span class="line">print(<span class="string">"\r"</span>.isspace())</span><br><span class="line">print(<span class="string">"  qq"</span>.isspace())</span><br><span class="line"></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="ASCII码转换"><a href="#ASCII码转换" class="headerlink" title="ASCII码转换"></a>ASCII码转换</h3><ol>
+<li><p>ord(str)</p>
+<blockquote>
+<p>获取字符串的整数表示 ASCII码值</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(ord(<span class="string">"A"</span>))</span><br><span class="line">print(ord(<span class="string">"你"</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">65</span></span><br><span class="line"><span class="number">20320</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>chr(str)</p>
+<blockquote>
+<p>把ASCII编码转成对应的字符</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(chr(<span class="number">68</span>))</span><br><span class="line">print(chr(<span class="number">20320</span>))</span><br><span class="line"></span><br><span class="line"><span class="string">"D"</span></span><br><span class="line"><span class="string">"你"</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<p>​</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -276,9 +539,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-04-17T17:46:30+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T17:46:30+08:00">
                 2018-04-17
               </time>
             
@@ -414,9 +677,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-04-16T22:08:01+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-16T22:08:01+08:00">
                 2018-04-16
               </time>
             
@@ -645,9 +908,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-04-14T15:42:10+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-14T15:42:10+08:00">
                 2018-04-14
               </time>
             
@@ -785,9 +1048,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-04-10T19:43:29+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T19:43:29+08:00">
                 2018-04-10
               </time>
             
@@ -908,9 +1171,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-03-28T19:30:07+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T19:30:07+08:00">
                 2018-03-28
               </time>
             
@@ -1035,9 +1298,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-03-27T11:48:11+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T11:48:11+08:00">
                 2018-03-27
               </time>
             
@@ -1162,9 +1425,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-03-27T10:10:34+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T10:10:34+08:00">
                 2018-03-27
               </time>
             
@@ -1364,9 +1627,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-03-10T11:28:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T11:28:25+08:00">
                 2018-03-10
               </time>
             
@@ -1486,9 +1749,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">投稿日</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-02-12T21:52:34+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-12T21:52:34+08:00">
                 2018-02-12
               </time>
             
@@ -1609,156 +1872,6 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/27/jsonp-introduction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LinDs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/27/jsonp-introduction/" itemprop="url">jsonp-introduction</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">投稿日</span>
-              
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-01-27T12:09:23+08:00">
-                2018-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JSONP简介"><a href="#JSONP简介" class="headerlink" title="JSONP简介"></a>JSONP简介</h1><blockquote>
-<p>JSONP是JSON with padding(填充式JSON或参数式JSON)的简写。<br>我们都知道Netscape著名的安全策略——同源策略，该策略是不允许进行跨域请求的，而jsonp 就是解决跨域请求的方式之一，不过目前的趋势可能会越用越少，因为已经有新的更好的跨域请求方式，比如：ajax跨域——CORS跨域。<br>由于<code>&lt;script&gt;</code>标签加载的数据是不受同源策略，jsonp正是利用这一点，在网页里面添加一个<code>&lt;script&gt;</code>元素，向服务器请求json数据，服务器返回的json数据会放在指定的回调函数里传回来，而客户端只需要实现这个回调函数做什么就可以了。</p>
-</blockquote>
-<p> 当通过<code>&lt;script&gt;</code>元素调用数据时，响应内容必须用javascript函数名和圆括号包裹起来。而不是发送这样一段JSON数据，这就是JSONP中P的意义所在:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">callback(json_data);</span><br></pre></td></tr></table></figure></p>
-<h3 id="百度的jsonp"><a href="#百度的jsonp" class="headerlink" title="百度的jsonp"></a>百度的jsonp</h3><p>我们经常用的百度搜索就使用了jsonp技术，当我们在搜索框输入内容的时候，f12打开控制台的network可以看到网页加载了一个<code>&lt;script&gt;</code>，请求的链接如下：</p>
-<blockquote>
-<p><a href="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=j&amp;json=1&amp;p=3&amp;sid=1432_21093&amp;req=2&amp;bs=jsonp&amp;csor=1&amp;cb=jQuery110206596423797291286_1517021405329&amp;_=1517021405334" target="_blank" rel="noopener">https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=j&amp;json=1&amp;p=3&amp;sid=1432_21093&amp;req=2&amp;bs=jsonp&amp;csor=1&amp;cb=jQuery110206596423797291286_1517021405329&amp;_=1517021405334</a></p>
-</blockquote>
-<p>链接里主要用来实现jsonp的参数就是wd和cb，wd是你输入的内容，而cb是回调函数的名称。<br>我们可以试一下在浏览器中输入这段地址请求：</p>
-<blockquote>
-<p><a href="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=js&amp;cb=show" target="_blank" rel="noopener">https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=js&amp;cb=show</a></p>
-</blockquote>
-<p>你会得到这样的响应结果：</p>
-<blockquote>
-<p>show({q:”js”,p:false,s:[“json在线解析”,”json”,”建设银行”,”计算器”,”js保留两位小数”,”json.stringify()”,”json格式化”,”jsp”,”js 数组”,”js刷新当前页面”]});</p>
-</blockquote>
-<p>把这段响应结果放进<code>&lt;script&gt;</code>标签加载进来会怎样呢？不就是相当于调用show方法吗，而且传入了一个json数据。<br>其实这就是jsonp的实现过程，需要后端的配合实现，即后端帮你拿数据，然后利用<code>&lt;script&gt;</code>标签把数据加载进页面。</p>
-<h3 id="我们来试一下用百度的jsonp为我们搜索数据"><a href="#我们来试一下用百度的jsonp为我们搜索数据" class="headerlink" title="我们来试一下用百度的jsonp为我们搜索数据"></a>我们来试一下用百度的jsonp为我们搜索数据</h3><ol>
-<li><p>html代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>jsonp<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"search"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"option"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>js代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">data</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">let</span> oUl = <span class="built_in">document</span>.getElementById(<span class="string">'option'</span>);</span><br><span class="line"></span><br><span class="line">  oUl.innerHTML = <span class="string">''</span>;</span><br><span class="line">  data.s.forEach(<span class="function"><span class="params">str</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">    oLi.innerHTML=str;</span><br><span class="line">    oUl.appendChild(oLi);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> inp = <span class="built_in">document</span>.getElementById(<span class="string">'search'</span>);</span><br><span class="line"></span><br><span class="line">  inp.oninput = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> oScript = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    oScript.src = <span class="string">`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(inp.value)&#125;</span>&amp;cb=show`</span>;</span><br><span class="line">    <span class="built_in">document</span>.head.appendChild(oScript);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在搜索框输入内容可以看到如下效果：<br><br><img src="/2018/01/27/jsonp-introduction/jsonp.PNG" alt="alt jsonp"></p>
-</li>
-</ol>
-<p><strong>这里需要注意的就是，在插入<code>&lt;script&gt;</code>的时候，每次都要创建一个新的<code>&lt;script&gt;</code>重新插入</strong></p>
-<blockquote>
-<p>以上就是我对jsonp的粗略见解，虽说jsonp以后可能会被新的技术取代，不过多了解一些解决方法，还是有利于知识面的扩展的，正所谓技多不压身。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1809,8 +1922,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">ポスト</span>
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1823,7 +1936,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">タグ</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -1876,7 +1989,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
