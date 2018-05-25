@@ -2,6 +2,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
@@ -9,8 +18,11 @@
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,38 +58,57 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-ds-32.jpg?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-ds-32.jpg?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-ds.jpg?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-ds.jpg?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT, linds, 林德双, Dayson" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="LinDs" type="application/atom+xml" />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LinDs">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -94,29 +121,8 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+  <link rel="alternate" href="/atom.xml" title="LinDs" type="application/atom+xml" />
+
 
 
 
@@ -124,7 +130,11 @@
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>LinDs</title>
   
@@ -136,12 +146,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  
-<script type="text/javascript"
-color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
   
   
@@ -158,19 +193,21 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">LinDs</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">技术创造生活，技术也来源于生活</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -178,45 +215,37 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Startseite
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archiv
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home menu-item-active">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -224,12 +253,20 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -242,16 +279,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/Python的字符串相关方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/sql/mysql中的索引/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -266,25 +305,495 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/18/Python的字符串相关方法/" itemprop="url">Python的字符串相关方法</a></h1>
+                <a class="post-title-link" href="/2018/05/25/sql/mysql中的索引/" itemprop="url">
+                  mysql中的索引
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-18T20:41:54+08:00">
-                2018-04-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-25 19:37:25 / 修改时间：19:58:18" itemprop="dateCreated datePublished" datetime="2018-05-25T19:37:25+08:00">2018-05-25</time>
             
 
             
+              
 
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="索引是什么"><a href="#索引是什么" class="headerlink" title="索引是什么"></a>索引是什么</h4><blockquote>
+<p>　索引（Index）是帮助MySQL高效获取数据的数据结构。可以得到索引的本质：索引是数据结构。</p>
+<p>　　可以理解为“排好序的快速查找数据结构”</p>
+<p>　　在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据,</p>
+<p>　　这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。</p>
+</blockquote>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><blockquote>
+<p>类似大学图书馆建书目索引，不用扫描全表，直接通过索引检索，提高数据检索效率，降低数据库的IO成本。</p>
+<p>通过索引对数据进行排序，降低数据排序的成本，降低了CPU的消耗.</p>
+</blockquote>
+<h4 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h4><blockquote>
+<p>实际上索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录，所以索引列也是要占空间的。</p>
+<p>虽然索引大大提高了查询速度，同时确会降低更新表的速度，如对表进行INSERT、UPDATE、DELETE。</p>
+<p>因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件每次更新添加了索引列的字段。</p>
+<p>都会调整因为更新所带来的键值变化后的索引信息。 </p>
+</blockquote>
+<h4 id="索引的分类"><a href="#索引的分类" class="headerlink" title="索引的分类"></a>索引的分类</h4><blockquote>
+<ol>
+<li>单值索引：即一个索引只包含单个列，一个表可以有多个单列索引。</li>
+<li>唯一索引：索引列的值必须唯一，但允许有空值。</li>
+<li>复合索引：即一个索引包含多个列</li>
+</ol>
+</blockquote>
+<h4 id="什么时候用，什么时候不该用？"><a href="#什么时候用，什么时候不该用？" class="headerlink" title="什么时候用，什么时候不该用？"></a>什么时候用，什么时候不该用？</h4><blockquote>
+<p>主键自动建立索引；</p>
+<p>频繁作为查询条件的字段要建立索引；</p>
+<p>查询中与其他表关联的字段，外键关系建立索引；</p>
+<p>查询中用于排序的字段；</p>
+<p>查询中用于统计或分组的字段；</p>
+<p>频繁更新的字段不宜建立索引，每次更新记录的时候还会更新索引；</p>
+<p>表记录较少的时候</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/python/python的list去重/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayson">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinDs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/python/python的list去重/" itemprop="url">
+                  python的list去重
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-03 23:38:04" itemprop="dateCreated datePublished" datetime="2018-05-03T23:38:04+08:00">2018-05-03</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-使用set"><a href="#1-使用set" class="headerlink" title="1.使用set()"></a>1.使用set()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">89</span>,<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=list(set(a))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">89</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用字典"><a href="#2-使用字典" class="headerlink" title="2.使用字典"></a>2.使用字典</h3><blockquote>
+<p>关键在于利用字典的key不能重复</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">89</span>,<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b=&#123;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b=b.fromkeys(a)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">&#123;<span class="number">1</span>: <span class="keyword">None</span>, <span class="number">2</span>: <span class="keyword">None</span>, <span class="number">3</span>: <span class="keyword">None</span>, <span class="number">4</span>: <span class="keyword">None</span>, <span class="number">5</span>: <span class="keyword">None</span>, <span class="number">6</span>:<span class="keyword">None</span>, <span class="number">7</span>: <span class="keyword">None</span>, <span class="number">89</span>: <span class="keyword">None</span>, <span class="number">0</span>: <span class="keyword">None</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c=list(b.keys())</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">89</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>目前只知道这两种，可能还有其他方法</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/23/python/The-Zen-of-Python（python之禅）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayson">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinDs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/23/python/The-Zen-of-Python（python之禅）/" itemprop="url">
+                  The Zen of Python（python之禅）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-23 12:00:56" itemprop="dateCreated datePublished" datetime="2018-04-23T12:00:56+08:00">2018-04-23</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Beautiful is better than ugly.<br>Explicit is better than implicit.<br>Simple is better than complex.<br>Complex is better than complicated.<br>Flat is better than nested.<br>Sparse is better than dense.<br>Readability counts.<br>Special cases aren’t special enough to break the rules.<br>Although practicality beats purity.<br>Errors should never pass silently.<br>Unless explicitly silenced.<br>In the face of ambiguity, refuse the temptation to guess.<br>There should be one– and preferably only one –obvious way to do it.<br>Although that way may not be obvious at first unless you’re Dutch.<br>Now is better than never.<br>Although never is often better than <em>right</em> now.<br>If the implementation is hard to explain, it’s a bad idea.<br>If the implementation is easy to explain, it may be a good idea.<br>Namespaces are one honking great idea – let’s do more of those!</p>
+</blockquote>
+<h4 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h4><blockquote>
+<p>优美胜于丑陋（Python 以编写优美的代码为目标）<br>明了胜于晦涩（优美的代码应当是明了的，命名规范，风格相似）<br>简洁胜于复杂（优美的代码应当是简洁的，不要有复杂的内部实现）<br>复杂胜于凌乱（如果复杂不可避免，那代码间也不能有难懂的关系，要保持接口简洁）<br>扁平胜于嵌套（优美的代码应当是扁平的，不能有太多的嵌套）<br>间隔胜于紧凑（优美的代码有适当的间隔，不要奢望一行代码解决问题）<br>可读性很重要（优美的代码是可读的）<br>即便假借特例的实用性之名，也不可违背这些规则（这些规则至高无上）<br>不要包容所有错误，除非你确定需要这样做（精准地捕获异常，不写 except:pass 风格的代码）<br>当存在多种可能，不要尝试去猜测<br>而是尽量找一种，最好是唯一一种明显的解决方案（如果不确定，就用穷举法）<br>虽然这并不容易，因为你不是 Python 之父（这里的 Dutch 是指 Guido ）<br>做也许好过不做，但不假思索就动手还不如不做（动手之前要细思量）<br>如果你无法向人描述你的方案，那肯定不是一个好方案；反之亦然（方案测评标准）<br>命名空间是一种绝妙的理念，我们应当多加利用（倡导与号召）</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/python/Python的字符串相关方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayson">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinDs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/18/python/Python的字符串相关方法/" itemprop="url">
+                  Python的字符串相关方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-18 20:41:54 / 修改时间：23:43:41" itemprop="dateCreated datePublished" datetime="2018-04-18T20:41:54+08:00">2018-04-18</time>
+            
+
+            
+              
+
+              
             
           </span>
 
@@ -467,6 +976,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
       
     </div>
+
+    
+
     
     
     
@@ -505,16 +1017,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/tuple-元组/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/python/tuple-元组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -529,25 +1043,40 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/17/tuple-元组/" itemprop="url">tuple-元组</a></h1>
+                <a class="post-title-link" href="/2018/04/17/python/tuple-元组/" itemprop="url">
+                  tuple-元组
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T17:46:30+08:00">
-                2018-04-17
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-17 17:46:30 / 修改时间：17:57:50" itemprop="dateCreated datePublished" datetime="2018-04-17T17:46:30+08:00">2018-04-17</time>
             
 
             
+              
 
+              
             
           </span>
 
@@ -605,6 +1134,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
       
     </div>
+
+    
+
     
     
     
@@ -643,16 +1175,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/list-列表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/python/list-列表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -667,25 +1201,52 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/16/list-列表/" itemprop="url">list-列表</a></h1>
+                <a class="post-title-link" href="/2018/04/16/python/list-列表/" itemprop="url">
+                  list-列表
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-16T22:08:01+08:00">
-                2018-04-16
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-16 22:08:01" itemprop="dateCreated datePublished" datetime="2018-04-16T22:08:01+08:00">2018-04-16</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-17 17:50:45" itemprop="dateModified" datetime="2018-04-17T17:50:45+08:00">2018-04-17</time>
+              
             
           </span>
 
@@ -836,6 +1397,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
       
     </div>
+
+    
+
     
     
     
@@ -874,16 +1438,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/python的数字类型和相关函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/python/python的数字类型和相关函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -898,25 +1464,40 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/14/python的数字类型和相关函数/" itemprop="url">python的数字类型和相关函数</a></h1>
+                <a class="post-title-link" href="/2018/04/14/python/python的数字类型和相关函数/" itemprop="url">
+                  python的数字类型和相关函数
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-14T15:42:10+08:00">
-                2018-04-14
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-14 15:42:10 / 修改时间：16:27:11" itemprop="dateCreated datePublished" datetime="2018-04-14T15:42:10+08:00">2018-04-14</time>
             
 
             
+              
 
+              
             
           </span>
 
@@ -976,6 +1557,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
       
     </div>
+
+    
+
     
     
     
@@ -1014,16 +1598,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/冒泡排序算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/python/冒泡排序算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1038,23 +1624,34 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/10/冒泡排序算法/" itemprop="url">冒泡排序算法</a></h1>
+                <a class="post-title-link" href="/2018/04/10/python/冒泡排序算法/" itemprop="url">
+                  冒泡排序算法
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T19:43:29+08:00">
-                2018-04-10
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2018-04-10 19:43:29" itemprop="dateCreated datePublished" datetime="2018-04-10T19:43:29+08:00">2018-04-10</time>
             
 
             
@@ -1099,6 +1696,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
       
     </div>
+
+    
+
     
     
     
@@ -1137,16 +1737,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/水仙花数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/python/水仙花数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1161,23 +1763,34 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/28/水仙花数/" itemprop="url">水仙花数</a></h1>
+                <a class="post-title-link" href="/2018/03/28/python/水仙花数/" itemprop="url">
+                  水仙花数
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T19:30:07+08:00">
-                2018-03-28
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2018-03-28 19:30:07" itemprop="dateCreated datePublished" datetime="2018-03-28T19:30:07+08:00">2018-03-28</time>
             
 
             
@@ -1226,6 +1839,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
       
     </div>
+
+    
+
     
     
     
@@ -1264,16 +1880,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/markdown基本语法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/others/markdown基本语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1288,25 +1906,40 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/27/markdown基本语法/" itemprop="url">markdown语法</a></h1>
+                <a class="post-title-link" href="/2018/03/27/others/markdown基本语法/" itemprop="url">
+                  markdown语法
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T11:48:11+08:00">
-                2018-03-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-27 11:48:11 / 修改时间：19:35:44" itemprop="dateCreated datePublished" datetime="2018-03-27T11:48:11+08:00">2018-03-27</time>
             
 
             
+              
 
+              
             
           </span>
 
@@ -1353,495 +1986,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
         
       
     </div>
-    
-    
-    
 
     
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/初学python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LinDs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/初学python/" itemprop="url">初学python</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T10:10:34+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="初学python"><a href="#初学python" class="headerlink" title="初学python"></a>初学python</h1><blockquote>
-<p>面向对象、解释型、动态数据类型的高级程序设计语言</p>
-<p>作者：荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年，遵循GPL协议</p>
-</blockquote>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>简单易学</li>
-<li>免费开源</li>
-<li>已于维护</li>
-<li>代码易读性高，编程方式较为优雅</li>
-</ul>
-<ul>
-<li>可移植性强</li>
-<li>面向对象</li>
-<li>可嵌入</li>
-<li>一个标准的</li>
-<li>支持GUI编程</li>
-</ul>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>运行速度慢（与C语言相比，比起JAVA性能也较差）</li>
-<li>代码不可加密</li>
-</ul>
-<h3 id="python能做什么"><a href="#python能做什么" class="headerlink" title="python能做什么"></a>python能做什么</h3><ul>
-<li>网络后端</li>
-<li>自动化运维</li>
-<li>数据分析</li>
-<li>自动化测试</li>
-<li>网络爬虫</li>
-<li>人工智能</li>
-</ul>
-<h3 id="python的三种运行方式"><a href="#python的三种运行方式" class="headerlink" title="python的三种运行方式"></a>python的三种运行方式</h3><ul>
-<li>交互式解释其模式</li>
-<li>命令行脚步模式</li>
-<li>集成开发环境</li>
-</ul>
-<h3 id="python的编码规范"><a href="#python的编码规范" class="headerlink" title="python的编码规范"></a>python的编码规范</h3><ul>
-<li>不以分好结尾</li>
-<li>尽量控制每行代码的长度，不要多于80个字符</li>
-<li>代码的包含关系用缩进控制，每一层级最好用四空格控制</li>
-<li>顶级定义之间空两行，方法之间空一行</li>
-<li>每个语句都应该占据一行</li>
-<li>不要滥用括号</li>
-<li>文件名不能出现中文或空格</li>
-</ul>
-<h3 id="标识符规则"><a href="#标识符规则" class="headerlink" title="标识符规则"></a>标识符规则</h3><ul>
-<li>只能由字母、数字、下划线组成</li>
-<li>开头不能是数字</li>
-<li>不能是python的关键字<br>例如：def  False True and break class del 等等</li>
-<li>区分大小写</li>
-<li>取名字要做到见名知义</li>
-</ul>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ol>
-<li><p>Number(数字)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">整数</span><br><span class="line">浮点数</span><br><span class="line">复数：（a+bj）或者complex(a,b)表示，实部a和虚部b都是浮点型</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>String(字符串)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"hello world"</span></span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line"><span class="string">'hello world\n'</span> <span class="comment">#斜杠表示转译</span></span><br><span class="line"><span class="string">r'hello world\n'</span> <span class="comment">#r表示忽略转译</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>Boolean(布尔值)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">True</span>(<span class="number">1</span>)/<span class="keyword">False</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>None(空值)</p>
-</li>
-<li><p>list(列表)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 有序的集合</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>]</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>tuple(元组)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与list类似，但初始化后就不能再改变</span></span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">（<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>）</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>dict(字典)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用键-值（key-value）存储，key是唯一的，dict是无序的</span></span><br><span class="line">&#123;<span class="string">"a"</span>:<span class="number">1</span>,<span class="string">"b"</span>:<span class="number">2</span>,<span class="string">"c"</span>:<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>set(集合)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以看做只存储key的dict,因此每个元素都是唯一的</span></span><br><span class="line">&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="变量和常量"><a href="#变量和常量" class="headerlink" title="变量和常量"></a>变量和常量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义：变量名=变量值，一个变量也可以反复赋值，而且可以是不同类型的变量</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="string">"hello world"</span></span><br><span class="line"><span class="comment"># 常量：程序运行期间不能改变的数据</span></span><br><span class="line"><span class="comment">#如：数字和字符、字符串</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="string">'a'</span></span><br></pre></td></tr></table></figure>
-<p><strong>在python里，不管是什么类型的变量，都可以直接输出！</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/3d-box/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LinDs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/10/3d-box/" itemprop="url">3D盒子</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T11:28:25+08:00">
-                2018-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="CSS3制作简单的3D盒子"><a href="#CSS3制作简单的3D盒子" class="headerlink" title="CSS3制作简单的3D盒子"></a>CSS3制作简单的3D盒子</h1><h2 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"front"</span>&gt;</span>前<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"back"</span>&gt;</span>后<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>上<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>下<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;<span class="attribute">height</span>: <span class="number">200px</span>;<span class="attribute">width</span>: <span class="number">200px</span>;<span class="attribute">margin</span>: <span class="number">50px</span> auto;<span class="attribute">position</span>: relative;<span class="attribute">transition</span>: <span class="number">1s</span> all ease ;<span class="attribute">transform</span>: <span class="built_in">perspective</span>(700px) <span class="built_in">rotateX</span>(0deg) <span class="built_in">rotateY</span>(0deg); <span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d;&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">transform</span>: <span class="built_in">perspective</span>(700px) <span class="built_in">rotateY</span>(90deg) <span class="built_in">rotateX</span>(90deg);&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;<span class="attribute">width</span>: <span class="number">198px</span>;<span class="attribute">height</span>: <span class="number">198px</span>;<span class="attribute">position</span>: absolute;<span class="attribute">top</span>: <span class="number">0px</span>;<span class="attribute">right</span>: <span class="number">0px</span>; <span class="attribute">background</span>:<span class="built_in">rgba</span>(0,255,0,0.5)&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.front</span>&#123;<span class="attribute">transform</span>: <span class="built_in">translateZ</span>(100px);&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.back</span>&#123;<span class="attribute">transform</span>: <span class="built_in">translateZ</span>(-100px);&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.left</span>&#123;<span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-90deg) <span class="built_in">translateZ</span>(100px);&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.right</span>&#123;<span class="attribute">transform</span>: <span class="built_in">rotateY</span>(90deg) <span class="built_in">translateZ</span>(100px);&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.top</span>&#123;<span class="attribute">transform</span>: <span class="built_in">rotateX</span>(90deg) <span class="built_in">translateZ</span>(100px);&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.bottom</span>&#123;<span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-90deg) <span class="built_in">translateZ</span>(100px);&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><div style="height: 200px;width: 200px;margin: 50px auto;position: relative;transition: 1s all ease ;transform: perspective(700px) rotateX(0deg) rotateY(0deg); transform-style: preserve-3d;" onmouseover="this.style.transform='perspective(700px) rotateY(90deg) rotateX(90deg)';" onmouseout="this.style.transform='perspective(700px) rotateY(0deg) rotateX(0deg)';"><br>  <div style="width: 198px;height: 198px;position: absolute;top: 0px;right: 0px; background:rgba(0,255,0,0.5);transform: translateZ(100px);">前</div><br>  <div style="width: 198px;height: 198px;position: absolute;top: 0px;right: 0px; background:rgba(0,255,0,0.5);transform: translateZ(-100px);">后</div><br>  <div style="width: 198px;height: 198px;position: absolute;top: 0px;right: 0px; background:rgba(0,255,0,0.5);transform: rotateY(-90deg) translateZ(100px);">左</div><br>  <div style="width: 198px;height: 198px;position: absolute;top: 0px;right: 0px; background:rgba(0,255,0,0.5);transform: rotateY(90deg) translateZ(100px);">右</div><br>  <div style="width: 198px;height: 198px;position: absolute;top: 0px;right: 0px; background:rgba(0,255,0,0.5);transform: rotateX(90deg) translateZ(100px);">上</div><br>  <div style="width: 198px;height: 198px;position: absolute;top: 0px;right: 0px; background:rgba(0,255,0,0.5);transform: rotateX(-90deg) translateZ(100px);">下</div><br></div>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/12/php-knowledge-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LinDs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/12/php-knowledge-1/" itemprop="url">PHP小知识点-序列1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-12T21:52:34+08:00">
-                2018-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="PHP小知识点-序列1"><a href="#PHP小知识点-序列1" class="headerlink" title="PHP小知识点-序列1"></a>PHP小知识点-序列1</h1><h3 id="双引号和单引号的区别"><a href="#双引号和单引号的区别" class="headerlink" title="双引号和单引号的区别"></a>双引号和单引号的区别</h3><ol>
-<li>双引号解释变量，单引号不解释变量</li>
-<li>双引号里插入单引号，其中单引号里如果有变量的话，变量解释</li>
-<li>双引号的变量名后面必须要有一个非数字、字母、下划线的特殊字符，或者用花括号将变量括起来，否则会将变量名后面的部分当做一个整体，引起语法错误</li>
-<li>双引号解释转义字符，单引号不解释转义字符，但是解释\和\\</li>
-<li>能使单引号字符尽量使用单引号，单引号的效率比双引号要高（因为双引号要先遍历一遍，判断里面有没有变量，然后再进行操作，而单引号则不需要判断）</li>
-</ol>
-<h3 id="常用的超全局变量-8个"><a href="#常用的超全局变量-8个" class="headerlink" title="常用的超全局变量-8个"></a>常用的超全局变量-8个</h3><ol>
-<li>$_GET<blockquote>
-<p>获取get方式的值</p>
-</blockquote>
-</li>
-<li>$_POST<blockquote>
-<p>获取post方式的值</p>
-</blockquote>
-</li>
-<li>$_REQUEST<blockquote>
-<p>获取get和post两种请求方式的值</p>
-</blockquote>
-</li>
-<li>$GLOBALS<blockquote>
-<p>以变量名为键，变量值为值，存放在该数组里</p>
-</blockquote>
-</li>
-<li>$_FILES<blockquote>
-<p>上传文件是获取文件信息</p>
-</blockquote>
-</li>
-<li>$_SERVER<blockquote>
-<p>一个包含了诸如头信息(header)、路径(path)、以及脚本位置(script locations)等等信息的数组。这个数组中的项目由 Web 服务器创建。不能保证每个服务器都提供全部项目；服务器可能会忽略一些，或者提供一些没有在这里列举出来的项目。</p>
-</blockquote>
-</li>
-<li>$_SESSION<blockquote>
-<p>设置或获取对应session</p>
-</blockquote>
-</li>
-<li>$_COOKIE<blockquote>
-<p>获取对应cookie信息</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="语句include和require的区别"><a href="#语句include和require的区别" class="headerlink" title="语句include和require的区别"></a>语句include和require的区别</h3><ol>
-<li>require是无条件包含，也就是如果一个流程里加入require，无论条件成立与否都会先执行require，当文件不存在或者无法打开的时候，会提示错误，并且会终止程序执行（即包含文件不存在或者语法错误的时候require是致命的，而include不是）</li>
-<li>include有返回值，而require没有(可能因为如此require的速度比include快)，如果被包含的文件不存在，那么会提示一个错误，但是程序会继续执行下去</li>
-<li>require_once和include_once都表示表示包含一次，避免了重复包含</li>
-</ol>
-
-          
-        
-      
-    </div>
     
     
     
@@ -1876,15 +2023,12 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1915,33 +2059,47 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
               <p class="site-description motion-element" itemprop="description">这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
+          
+            <nav class="site-state motion-element">
               
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">Artikel</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
+                <div class="site-state-item site-state-posts">
                 
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <a href="/archives/">
                 
-              </div>
-            
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-          </nav>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -1960,6 +2118,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
           
           
 
+          
+            
+          
           
 
         </div>
@@ -1980,16 +2141,20 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Dayson</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.5.0</div>
 
 
 
@@ -1997,12 +2162,13 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
 
 
 
 
         
+
 
 
 
@@ -2041,10 +2207,12 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 
 
 
-  
 
 
-  
+
+
+
+
 
 
 
@@ -2063,16 +2231,6 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -2081,23 +2239,13 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
 
 
 
@@ -2109,15 +2257,11 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
 
 
   
-
-
-  
-
 
 
 
@@ -2140,49 +2284,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
 
 
 
-   
-   
-   
-   
-   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-   
-       <script type="text/javascript">
-           var gitment = new Gitment({
-               id: window.location.pathname,
-               owner: '',
-               repo: '',
-               oauth: {
-                   client_id: '',
-                   client_secret: '',
-               }});
-           gitment.render('gitment-container');
-       </script>
-   
 
-
-
-
-
-   
-   
-   
-   
-   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-   
-       <script type="text/javascript">
-           var gitment = new Gitment({
-               id: window.location.pathname,
-               owner: '',
-               repo: '',
-               oauth: {
-                   client_id: '',
-                   client_secret: '',
-               }});
-           gitment.render('gitment-container');
-       </script>
-   
 
 
 
@@ -2199,6 +2301,12 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="88" src="//cdn.bootcss.com/canv
   
 
   
+
+  
+  
+
+  
+
   
 
   
