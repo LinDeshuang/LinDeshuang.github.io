@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-25T11:58:18.597Z</updated>
+  <updated>2018-06-03T15:47:09.378Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python字典合并操作</title>
+    <link href="http://yoursite.com/2018/06/03/python/python%E5%AD%97%E5%85%B8%E5%90%88%E5%B9%B6%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2018/06/03/python/python字典合并操作/</id>
+    <published>2018-06-03T15:47:09.257Z</published>
+    <updated>2018-06-03T15:47:09.378Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="python字典合并操作"><a href="#python字典合并操作" class="headerlink" title="python字典合并操作"></a>python字典合并操作</h3><h4 id="一行代码实现合并"><a href="#一行代码实现合并" class="headerlink" title="一行代码实现合并:"></a>一行代码实现合并:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d1 = &#123;<span class="string">'a'</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d2 = &#123;<span class="string">'b'</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d3 = &#123;**d1,**d2&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d3</span><br><span class="line">&#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="comment"># 注意：在python3.5以上支持这种写法</span></span><br></pre></td></tr></table></figure><h4 id="在python2和python3-0-3-4该怎么做"><a href="#在python2和python3-0-3-4该怎么做" class="headerlink" title="在python2和python3.0-3.4该怎么做:"></a>在python2和python3.0-3.4该怎么做:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d4=d1.copy()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d4</span><br><span class="line">&#123;<span class="string">'a'</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d4.update(d2)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d4</span><br><span class="line">&#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;python字典合并操作&quot;&gt;&lt;a href=&quot;#python字典合并操作&quot; class=&quot;headerlink&quot; title=&quot;python字典合并操作&quot;&gt;&lt;/a&gt;python字典合并操作&lt;/h3&gt;&lt;h4 id=&quot;一行代码实现合并&quot;&gt;&lt;a href=&quot;#一行代码实
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql中的索引</title>
