@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-ds-32.jpg?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-ds.jpg?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="列表本质 list列表的本质是一种有序的集合  创建列表12345678# 创建空列表list1 = []# 创建带元素的列表list2 = [1,2,3,4]# 含有多种元素的列表list3 = [123, &quot;abc&quot;, True, 1.234] 列表元素的访问1234567891011list4 = [1,2,3,4]# 下标从0开始，最大值为len(list4)-1 在这里最大值为3prin">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="list-列表">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/python/list-列表/index.html">
+<meta property="og:site_name" content="LinDs">
+<meta property="og:description" content="列表本质 list列表的本质是一种有序的集合  创建列表12345678# 创建空列表list1 = []# 创建带元素的列表list2 = [1,2,3,4]# 含有多种元素的列表list3 = [123, &quot;abc&quot;, True, 1.234] 列表元素的访问1234567891011list4 = [1,2,3,4]# 下标从0开始，最大值为len(list4)-1 在这里最大值为3prin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-17T09:50:45.308Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="list-列表">
+<meta name="twitter:description" content="列表本质 list列表的本质是一种有序的集合  创建列表12345678# 创建空列表list1 = []# 创建带元素的列表list2 = [1,2,3,4]# 含有多种元素的列表list3 = [123, &quot;abc&quot;, True, 1.234] 列表元素的访问1234567891011list4 = [1,2,3,4]# 下标从0开始，最大值为len(list4)-1 在这里最大值为3prin">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="LinDs" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/16/python/list-列表/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>list-列表 | LinDs</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LinDs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技术创造生活，技术也来源于生活</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/python/list-列表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayson">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinDs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">list-列表
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-16 22:08:01" itemprop="dateCreated datePublished" datetime="2018-04-16T22:08:01+08:00">2018-04-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-17 17:50:45" itemprop="dateModified" datetime="2018-04-17T17:50:45+08:00">2018-04-17</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="列表本质"><a href="#列表本质" class="headerlink" title="列表本质"></a>列表本质</h3><blockquote>
+<p>list列表的本质是一种有序的集合</p>
+</blockquote>
+<h3 id="创建列表"><a href="#创建列表" class="headerlink" title="创建列表"></a>创建列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建空列表</span></span><br><span class="line">list1 = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建带元素的列表</span></span><br><span class="line">list2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 含有多种元素的列表</span></span><br><span class="line">list3 = [<span class="number">123</span>, <span class="string">"abc"</span>, <span class="keyword">True</span>, <span class="number">1.234</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="列表元素的访问"><a href="#列表元素的访问" class="headerlink" title="列表元素的访问"></a>列表元素的访问</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">list4 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="comment"># 下标从0开始，最大值为len(list4)-1 在这里最大值为3</span></span><br><span class="line">print(list4[<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="comment"># !!!当索引值大于len(list4)-1时，将会报下标越界错误：</span></span><br><span class="line">IndexError: list index out of range</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 列表元素的替换</span></span><br><span class="line">list4[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line">print(list4)</span><br><span class="line">[<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列表组合</span></span><br><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">list2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">list3 = list1 + list2</span><br><span class="line">print(list3)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表重复</span></span><br><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">list2 = list1 * <span class="number">2</span></span><br><span class="line">print(list2)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表截取</span></span><br><span class="line"><span class="comment"># 语法：列表[start: end] 表示获取从开始下标到结束下标的所有元素[start, end)</span></span><br><span class="line"><span class="comment">#若不指定start，则默认从0开始截取，截取到指定位置</span></span><br><span class="line"><span class="comment">#若不指定end，则从指定位置开始截取，截取到末尾结束</span></span><br><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">print(list1[<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">print(list1[:<span class="number">3</span>])</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">print(list1[<span class="number">3</span>:])</span><br><span class="line">[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#二维和取值</span></span><br><span class="line">list1 = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">print(list1[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="列表的方法"><a href="#列表的方法" class="headerlink" title="列表的方法"></a>列表的方法</h3><ol>
+<li><p>list.append( 元素/列表 )</p>
+<blockquote>
+<p>在列表的末尾添加新的元素（即追加元素），可以追加普通元素，也可以追加一整个新的列表到列表尾部</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">#追加普通元素</span></span><br><span class="line">list1.append(<span class="number">4</span>)</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="comment">#追加列表</span></span><br><span class="line">list1.append([<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>])</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list.extend(列表)</p>
+<blockquote>
+<p>在列表的末尾一次性追加另外一个列表中的多个值</p>
+<p>extend()中的值只能是列表/元组[一个可迭代对象]，不能是元素</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">list1.extend(list2)</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list.insert(下标志, 元素/列表)</p>
+<blockquote>
+<p>在下标处插入元素，不覆盖原本的数据，原数据向后顺延</p>
+<p>插入的数据可以是元素也可以为列表</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list1.insert(<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">list1.insert(<span class="number">1</span>, [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>])</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>, [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>], <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list.pop(下标值)</p>
+<blockquote>
+<p>移除列表中指定下标的元素（默认移除最后一个元素），并返回移除的数据</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">n = list1.pop()</span><br><span class="line">print(n)</span><br><span class="line"><span class="number">4</span></span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list.clear()</p>
+<blockquote>
+<p>清空列表中的所有数据</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list1.clear()</span><br><span class="line">print(list1)</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list.index(元素  [,start】 [,stop ] )</p>
+<blockquote>
+<p>从指定的范围的列表中找出某个值第一次匹配的索引值 </p>
+<p>若不指定范围，则默认是整个列表，若给范围，则是[start, stop )</p>
+<p>注意：若在列表中找不到这个元素，则会报错</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">print(list1.index(<span class="number">2</span>))</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list.count(元素)</p>
+<blockquote>
+<p> 查看元素在列表中出现的次数</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">print(list1.count(<span class="number">1</span>))</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>len(list)</p>
+<blockquote>
+<p>返回列表元素的个数</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">print(len(list1))</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>max(list)</p>
+<blockquote>
+<p>返回列表中的最大值</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">print(max(list1))</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>min(list)</p>
+<blockquote>
+<p>返回列表中的最小值</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">print(min(list1))</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list.reverse()</p>
+<blockquote>
+<p>列表倒叙</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">list1.reverse()</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<ol>
+<li><p>list.sort()</p>
+<blockquote>
+<p>列表排序，默认为升序排序</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment"># 默认排序</span></span><br><span class="line">list1.sort()</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"><span class="comment"># 降序排序</span></span><br><span class="line">list1.sort( reverse = <span class="keyword">True</span> )</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<ol>
+<li><p>浅拷贝</p>
+<blockquote>
+<p>浅拷贝为应用拷贝，类似于快捷方式</p>
+</blockquote>
+</li>
+</ol>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">list2 = list1</span><br><span class="line">print(list2)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">print(id(list1))</span><br><span class="line"><span class="number">4314476123</span></span><br><span class="line"></span><br><span class="line">print(id(list2))</span><br><span class="line"><span class="number">4314476123</span></span><br><span class="line"><span class="comment"># 改变list2,list1也会改变，反之亦然</span></span><br><span class="line">list2.append(<span class="number">4</span>)</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>深拷贝</p>
+<blockquote>
+<p>深拷贝为内存拷贝，开辟了新的内存空间</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="comment"># 一般这样做</span></span><br><span class="line">list2 = list1.copy()</span><br><span class="line"><span class="comment"># 这样做也可以达到同样的效果！</span></span><br><span class="line">list2 = list1 * <span class="number">1</span></span><br><span class="line">list2 = list1 + []</span><br><span class="line"></span><br><span class="line">print(list2)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">print(id(list1))</span><br><span class="line"><span class="number">39681480</span></span><br><span class="line"></span><br><span class="line">print(id(list2))</span><br><span class="line"><span class="number">39678920</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改变list2,list1不会改变，反之亦然</span></span><br><span class="line">list2.append(<span class="number">4</span>)</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>list(可迭代对象)</p>
+<blockquote>
+<p>将一个可迭代对象转为列表</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">list1 = list(t)</span><br><span class="line">print(list1)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">s = <span class="string">"123"</span></span><br><span class="line">list2 = list(s)</span><br><span class="line">print(list2)</span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>]</span><br><span class="line"></span><br><span class="line">list3 = list(range(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">print(list3)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/14/python/python的数字类型和相关函数/" rel="next" title="python的数字类型和相关函数">
+                <i class="fa fa-chevron-left"></i> python的数字类型和相关函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/17/python/tuple-元组/" rel="prev" title="tuple-元组">
+                tuple-元组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Dayson</p>
+              <p class="site-description motion-element" itemprop="description">这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#列表本质"><span class="nav-number">1.</span> <span class="nav-text">列表本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建列表"><span class="nav-number">2.</span> <span class="nav-text">创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表元素的访问"><span class="nav-number">3.</span> <span class="nav-text">列表元素的访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表操作"><span class="nav-number">4.</span> <span class="nav-text">列表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表的方法"><span class="nav-number">5.</span> <span class="nav-text">列表的方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dayson</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
