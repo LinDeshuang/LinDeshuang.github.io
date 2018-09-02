@@ -286,6 +286,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/02/python/简易的websocket群发聊天室/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayson">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinDs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/02/python/简易的websocket群发聊天室/" itemprop="url">
+                  简易的websocket群发聊天室
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-02 23:21:39" itemprop="dateCreated datePublished" datetime="2018-09-02T23:21:39+08:00">2018-09-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="使用python实现websocket服务端"><a href="#使用python实现websocket服务端" class="headerlink" title="使用python实现websocket服务端"></a>使用python实现websocket服务端</h3><blockquote>
+<p>先安装python的websocket包</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install websocket-server</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>服务端代码</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> websocket_server <span class="keyword">import</span> WebsocketServer</span><br><span class="line"></span><br><span class="line">client_set = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_client</span><span class="params">(client, server)</span>:</span></span><br><span class="line">    print(<span class="string">"New client connected and was given id %d"</span> % client[<span class="string">'id'</span>])</span><br><span class="line">    client_set.append(client)</span><br><span class="line">    print(client_set)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">client_left</span><span class="params">(client, server)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> index, cl <span class="keyword">in</span> enumerate(client_set):</span><br><span class="line">        <span class="keyword">if</span> cl == client:</span><br><span class="line">            print(<span class="string">'Client(%d) disconnect'</span> % client[<span class="string">'id'</span>])</span><br><span class="line">            client_set.pop(index)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">message_received</span><span class="params">(client, server, message)</span>:</span></span><br><span class="line">    print(message, <span class="string">'from'</span>, client[<span class="string">'id'</span>])</span><br><span class="line">    <span class="keyword">for</span> cl <span class="keyword">in</span> client_set:</span><br><span class="line">        <span class="keyword">if</span> cl != client:</span><br><span class="line">            msg = message</span><br><span class="line">            server.send_message(cl, msg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">server = WebsocketServer(<span class="number">8888</span>, host=<span class="string">'127.0.0.1'</span>)</span><br><span class="line">server.set_fn_new_client(new_client)</span><br><span class="line">server.set_fn_client_left(client_left)</span><br><span class="line">server.set_fn_message_received(message_received)</span><br><span class="line">server.run_forever()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>客户端代码</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        * &#123;</span></span><br><span class="line"><span class="undefined">            padding: 0;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        #wechat &#123;</span></span><br><span class="line"><span class="undefined">            margin: 50px auto;</span></span><br><span class="line"><span class="undefined">            width: 400px;</span></span><br><span class="line"><span class="undefined">            height: 600px;</span></span><br><span class="line"><span class="undefined">            border: solid 5px green;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        #chatbox &#123;</span></span><br><span class="line"><span class="undefined">            margin: 10px auto;</span></span><br><span class="line"><span class="undefined">            width: 90%;</span></span><br><span class="line"><span class="undefined">            height: 400px;</span></span><br><span class="line"><span class="undefined">            list-style: none;</span></span><br><span class="line"><span class="undefined">            overflow: scroll;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .chatbox li &#123;</span></span><br><span class="line"><span class="undefined">            margin: 10px auto;</span></span><br><span class="line"><span class="undefined">            height: auto;</span></span><br><span class="line"><span class="undefined">            width: 90%;</span></span><br><span class="line"><span class="undefined">            padding: 10px;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        #chatbox .others &#123;</span></span><br><span class="line"><span class="undefined">            text-align: left;</span></span><br><span class="line"><span class="undefined">            background: white;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        #chatbox .myself &#123;</span></span><br><span class="line"><span class="undefined">            text-align: right;</span></span><br><span class="line"><span class="undefined">            background: chartreuse;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"sse"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wechat"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"chatbox"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"msg"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"message"</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">cols</span>=<span class="string">"30"</span> <span class="attr">rows</span>=<span class="string">"10"</span> <span class="attr">placeholder</span>=<span class="string">""</span>&gt;</span>输入聊天内容<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"send"</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用原生的websocket做服务端</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b64EncodeUnicode</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> btoa(<span class="built_in">encodeURIComponent</span>(str).replace(<span class="regexp">/%([0-9A-F]&#123;2&#125;)/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">match, p1</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">String</span>.fromCharCode(<span class="string">'0x'</span> + p1);</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">b64DecodeUnicode</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(atob(str).split(<span class="string">''</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'%'</span> + (<span class="string">'00'</span> + c.charCodeAt(<span class="number">0</span>).toString(<span class="number">16</span>)).slice(<span class="number">-2</span>);</span><br><span class="line">            &#125;).join(<span class="string">''</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"WebSocket"</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</span><br><span class="line">                alert(<span class="string">"您的浏览器支持 WebSocket!"</span>);</span><br><span class="line">                <span class="keyword">let</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://192.168.43.40:8888"</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">let</span> oBtn = <span class="built_in">document</span>.querySelector(<span class="string">'#send'</span>);</span><br><span class="line">                <span class="comment">// console.log(oBtn);</span></span><br><span class="line">                <span class="keyword">let</span> oUl = <span class="built_in">document</span>.querySelector(<span class="string">'#chatbox'</span>);</span><br><span class="line">                oBtn.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">let</span> sText = <span class="built_in">document</span>.querySelector(<span class="string">'#message'</span>).value;</span><br><span class="line">                    <span class="built_in">console</span>.log(b64EncodeUnicode(sText));</span><br><span class="line">                    <span class="keyword">let</span> res = ws.send(b64EncodeUnicode(sText));</span><br><span class="line">                    <span class="built_in">console</span>.log(res);</span><br><span class="line">                    <span class="keyword">let</span> oli = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">                    oli.className = <span class="string">'myself'</span>;</span><br><span class="line">                    oli.innerHTML = sText;</span><br><span class="line">                    oUl.appendChild(oli);</span><br><span class="line"></span><br><span class="line">                &#125;, <span class="literal">false</span>);</span><br><span class="line">                <span class="comment">// 打开一个 web socket</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                ws.onopen = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="comment">// Web Socket 已连接上，使用 send() 方法发送数据</span></span><br><span class="line">                    alert(<span class="string">"服务器已连接"</span>);</span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                ws.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">let</span> received_msg = b64DecodeUnicode(evt.data);</span><br><span class="line">                    <span class="keyword">let</span> oli = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">                    oli.className = <span class="string">'others'</span>;</span><br><span class="line">                    oli.innerHTML = received_msg;</span><br><span class="line">                    oUl.appendChild(oli);</span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                ws.onclose = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="comment">// 关闭 websocket</span></span><br><span class="line">                    alert(<span class="string">"连接已关闭...，请检查网络"</span>);</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 浏览器不支持 WebSocket</span></span><br><span class="line">                alert(<span class="string">"您的浏览器不支持 WebSocket!"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结，由于服务端用来第三方库，实现起来毫不费劲，客户端的websocket使用也是较为简单，不过用socket.io可以实现更加强大的客户端websocket</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/python/使用python发邮件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1694,164 +1848,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/python/tuple-元组/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dayson">
-      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LinDs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/17/python/tuple-元组/" itemprop="url">
-                  tuple-元组
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-04-17 17:46:30 / 修改时间：17:57:50" itemprop="dateCreated datePublished" datetime="2018-04-17T17:46:30+08:00">2018-04-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="元组的本质"><a href="#元组的本质" class="headerlink" title="元组的本质"></a>元组的本质</h3><blockquote>
-<p>元组本质上是一种有序的集合，和列表很相似，列表使用[]表示，元组使用()表示。</p>
-<p>元组一旦初始化，就不能发生改变</p>
-</blockquote>
-<h3 id="创建元组"><a href="#创建元组" class="headerlink" title="创建元组"></a>创建元组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建空的元组</span></span><br><span class="line">tuple1 = ()</span><br><span class="line">print(tuple1)</span><br><span class="line"><span class="comment">#创建带有元素的元组</span></span><br><span class="line">tuple2 =(<span class="number">22</span>, <span class="number">33</span>, <span class="number">14</span>, <span class="number">109</span>)</span><br><span class="line">print(tuple2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#与列表类似，元组中的元素类型可以不同</span></span><br><span class="line">tuple3 = (<span class="number">23</span>，<span class="keyword">True</span>，<span class="string">"good"</span>)</span><br><span class="line">print(tuple3)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义只有一个元素的元组</span></span><br><span class="line"><span class="comment">#这定义的不是元组而是整数1</span></span><br><span class="line">tuple4 = (<span class="number">1</span>)  </span><br><span class="line"><span class="comment">#定义一个元素的元组定义时必须加一个逗号",",用来消除歧义</span></span><br><span class="line">tuple4 = (<span class="number">1</span>,)</span><br></pre></td></tr></table></figure>
-<h3 id="访问元组中的元素"><a href="#访问元组中的元素" class="headerlink" title="访问元组中的元素"></a>访问元组中的元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">print(tuple1[<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="comment"># 获取最后一个元素</span></span><br><span class="line">print(tuple1[<span class="number">-1</span>])</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="comment"># 下标从0开始，当下标值越界时，将会报错，下面的访问将致使程序出错</span></span><br><span class="line">print(tuple1[<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="让元组中的元素可修改"><a href="#让元组中的元素可修改" class="headerlink" title="让元组中的元素可修改"></a>让元组中的元素可修改</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在元组里存列表，就可以让元组里的元素可修改了</span></span><br><span class="line">tuple1 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>, [<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">tuple1[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">print(tuple1)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">0</span>,<span class="number">6</span>])</span><br><span class="line"><span class="comment">#从表面上看我们的元组确实是改变了，</span></span><br><span class="line"><span class="comment">#但其实改变的不是我们的元组，而是list的元素，</span></span><br><span class="line"><span class="comment">#所谓的tuple不变是说，tuple的每个元素的指向永远不变，</span></span><br><span class="line"><span class="comment">#一旦它指向了这个list，就不能改指向其他的对象，</span></span><br><span class="line"><span class="comment">#但是指向的list本身是可变的！</span></span><br></pre></td></tr></table></figure>
-<h3 id="元组操作"><a href="#元组操作" class="headerlink" title="元组操作"></a>元组操作</h3><ol>
-<li><p>元组的连接组合、重复</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">tuple2 = (<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">tuple3 = tuple1+tuple2</span><br><span class="line">print(tuple3)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">tuple4 = tuple1 * <span class="number">3</span></span><br><span class="line">print(tuple4)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>元组截取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 语法：</span></span><br><span class="line"><span class="comment"># 元组名[start:end]  </span></span><br><span class="line"><span class="comment"># 截取的元组范围[start,end)</span></span><br><span class="line"><span class="comment"># 功能：获取开始下标到结束下标之前的所有元素。</span></span><br><span class="line"><span class="comment"># 若不指定start则默认是从开头开始截取到指定位置</span></span><br><span class="line"><span class="comment"># 若不指定end则默认从指定位置截取到结尾</span></span><br><span class="line">tuple1 = (<span class="number">1</span>,  <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="string">'hello'</span>, <span class="string">'good'</span>)</span><br><span class="line"></span><br><span class="line">print(tuple1[<span class="number">2</span>:<span class="number">5</span>])</span><br><span class="line">(<span class="number">3</span>, <span class="number">8</span>, <span class="string">'hello'</span>)</span><br><span class="line"></span><br><span class="line">print(tuple1[:<span class="number">5</span>])</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="string">'hello'</span>)</span><br><span class="line"></span><br><span class="line">print(tuple1[<span class="number">3</span>:])</span><br><span class="line">(<span class="number">8</span>, <span class="string">'hello'</span>, <span class="string">'good'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tuple(可迭代对象)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = tuple([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">print(tuple1)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">tuple2 = tuple(<span class="string">"123"</span>)</span><br><span class="line">print(tuple2)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">tuple3 = tuple(range(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line">print(tuple3)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="二维元组"><a href="#二维元组" class="headerlink" title="二维元组"></a>二维元组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = ((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>),(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>),(<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>))</span><br><span class="line"><span class="comment">#获取第一个元组的第一个元素</span></span><br><span class="line">print(tuple1[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1899,7 +1895,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

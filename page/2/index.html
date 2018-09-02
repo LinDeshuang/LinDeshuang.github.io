@@ -286,6 +286,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/python/tuple-元组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayson">
+      <meta itemprop="description" content="这是一个用于分享的个人心得感悟的小网站，当然，主要还是记录博主对于技术的理解">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinDs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/17/python/tuple-元组/" itemprop="url">
+                  tuple-元组
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-17 17:46:30 / 修改时间：17:57:50" itemprop="dateCreated datePublished" datetime="2018-04-17T17:46:30+08:00">2018-04-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="元组的本质"><a href="#元组的本质" class="headerlink" title="元组的本质"></a>元组的本质</h3><blockquote>
+<p>元组本质上是一种有序的集合，和列表很相似，列表使用[]表示，元组使用()表示。</p>
+<p>元组一旦初始化，就不能发生改变</p>
+</blockquote>
+<h3 id="创建元组"><a href="#创建元组" class="headerlink" title="创建元组"></a>创建元组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建空的元组</span></span><br><span class="line">tuple1 = ()</span><br><span class="line">print(tuple1)</span><br><span class="line"><span class="comment">#创建带有元素的元组</span></span><br><span class="line">tuple2 =(<span class="number">22</span>, <span class="number">33</span>, <span class="number">14</span>, <span class="number">109</span>)</span><br><span class="line">print(tuple2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#与列表类似，元组中的元素类型可以不同</span></span><br><span class="line">tuple3 = (<span class="number">23</span>，<span class="keyword">True</span>，<span class="string">"good"</span>)</span><br><span class="line">print(tuple3)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义只有一个元素的元组</span></span><br><span class="line"><span class="comment">#这定义的不是元组而是整数1</span></span><br><span class="line">tuple4 = (<span class="number">1</span>)  </span><br><span class="line"><span class="comment">#定义一个元素的元组定义时必须加一个逗号",",用来消除歧义</span></span><br><span class="line">tuple4 = (<span class="number">1</span>,)</span><br></pre></td></tr></table></figure>
+<h3 id="访问元组中的元素"><a href="#访问元组中的元素" class="headerlink" title="访问元组中的元素"></a>访问元组中的元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">print(tuple1[<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="comment"># 获取最后一个元素</span></span><br><span class="line">print(tuple1[<span class="number">-1</span>])</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="comment"># 下标从0开始，当下标值越界时，将会报错，下面的访问将致使程序出错</span></span><br><span class="line">print(tuple1[<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="让元组中的元素可修改"><a href="#让元组中的元素可修改" class="headerlink" title="让元组中的元素可修改"></a>让元组中的元素可修改</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在元组里存列表，就可以让元组里的元素可修改了</span></span><br><span class="line">tuple1 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>, [<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">tuple1[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">print(tuple1)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">0</span>,<span class="number">6</span>])</span><br><span class="line"><span class="comment">#从表面上看我们的元组确实是改变了，</span></span><br><span class="line"><span class="comment">#但其实改变的不是我们的元组，而是list的元素，</span></span><br><span class="line"><span class="comment">#所谓的tuple不变是说，tuple的每个元素的指向永远不变，</span></span><br><span class="line"><span class="comment">#一旦它指向了这个list，就不能改指向其他的对象，</span></span><br><span class="line"><span class="comment">#但是指向的list本身是可变的！</span></span><br></pre></td></tr></table></figure>
+<h3 id="元组操作"><a href="#元组操作" class="headerlink" title="元组操作"></a>元组操作</h3><ol>
+<li><p>元组的连接组合、重复</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">tuple2 = (<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">tuple3 = tuple1+tuple2</span><br><span class="line">print(tuple3)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">tuple4 = tuple1 * <span class="number">3</span></span><br><span class="line">print(tuple4)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元组截取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 语法：</span></span><br><span class="line"><span class="comment"># 元组名[start:end]  </span></span><br><span class="line"><span class="comment"># 截取的元组范围[start,end)</span></span><br><span class="line"><span class="comment"># 功能：获取开始下标到结束下标之前的所有元素。</span></span><br><span class="line"><span class="comment"># 若不指定start则默认是从开头开始截取到指定位置</span></span><br><span class="line"><span class="comment"># 若不指定end则默认从指定位置截取到结尾</span></span><br><span class="line">tuple1 = (<span class="number">1</span>,  <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="string">'hello'</span>, <span class="string">'good'</span>)</span><br><span class="line"></span><br><span class="line">print(tuple1[<span class="number">2</span>:<span class="number">5</span>])</span><br><span class="line">(<span class="number">3</span>, <span class="number">8</span>, <span class="string">'hello'</span>)</span><br><span class="line"></span><br><span class="line">print(tuple1[:<span class="number">5</span>])</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="string">'hello'</span>)</span><br><span class="line"></span><br><span class="line">print(tuple1[<span class="number">3</span>:])</span><br><span class="line">(<span class="number">8</span>, <span class="string">'hello'</span>, <span class="string">'good'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tuple(可迭代对象)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = tuple([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">print(tuple1)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">tuple2 = tuple(<span class="string">"123"</span>)</span><br><span class="line">print(tuple2)</span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">tuple3 = tuple(range(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line">print(tuple3)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="二维元组"><a href="#二维元组" class="headerlink" title="二维元组"></a>二维元组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = ((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>),(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>),(<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>))</span><br><span class="line"><span class="comment">#获取第一个元组的第一个元素</span></span><br><span class="line">print(tuple1[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/python/list-列表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1766,7 +1924,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
